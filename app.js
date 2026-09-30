@@ -33,7 +33,7 @@
     ['Inventory &amp; Quarantine','inv','New lots are held automatically. Nothing reaches the line until QC releases it.'],
     ['Traceability &amp; Recall','trace','Pick any lot and see source materials, tests, packaging and every customer it reached.'],
     ['Batch Costing &amp; Finance','cost','Material, labour and overhead roll up to a cost per batch, ready for invoicing.']];
-  document.getElementById('mlist').innerHTML=mods.map(function(m,i){return '<div class="mrow"><div><div class="n">[0'+(i+1)+']</div><h3>'+m[0]+'</h3></div>'+thumbs[m[1]]+'<p class="d">'+m[2]+'</p><a class="arrow" href="https://claude.ai/artifact/SWQeGB42a1d1AWrpTo5fgo" target="_blank" rel="noopener" aria-label="See '+m[0].replace('&amp;','and')+' in the prototype"><svg><use href="#up"/></svg></a></div>'}).join('');
+  document.getElementById('mlist').innerHTML=mods.map(function(m,i){return '<div class="mrow"><div><div class="n">[0'+(i+1)+']</div><h3>'+m[0]+'</h3></div>'+thumbs[m[1]]+'<p class="d">'+m[2]+'</p><a class="arrow" href="https://pharmora-portal-new.vercel.app/" target="_blank" rel="noopener" aria-label="See '+m[0].replace('&amp;','and')+' in the prototype"><svg><use href="#up"/></svg></a></div>'}).join('');
 
   // process flow svg
   var st=['Receive materials','Test &amp; release','Plan batch','Dispense','Manufacture','Package','Release test','Dispatch &amp; trace'];
