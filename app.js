@@ -63,18 +63,6 @@
   var rc=roles.map(function(r){return '<div class="rcard"><div class="top">'+icon+'</div><h4>'+r[0]+'</h4><p>'+r[1]+'</p><div class="who"><i style="background:'+r[3]+'">'+r[4]+'</i>'+r[2]+'</div></div>'}).join('');
   document.getElementById('rtrack').innerHTML=rc+rc;
 
-  // FAQ
-  var faq=[['How long until we are live?','Phase 1 goes live on one production line at the end of week 4: a two-day discovery, design, three short build sprints, validation support and a pilot on one line.'],
-    ['Who owns computer system validation?','Validation stays with you as the manufacturer. We supply the documentation, traceability matrix and test evidence your QA team needs to sign it off.'],
-    ['Where is Pharmora hosted?','On a private cloud tenant or on your own servers. Hosting and support are billed monthly after go-live; contact us for pricing.'],
-    ['What do you need from our team?','A QA lead and a production lead for a few hours each sprint, plus your master formulas and current SOPs during discovery.'],
-    ['Are the prices fixed?','Yes. We fix the price for each phase after the two-day discovery workshop. Contact us for pricing.'],
-    ['Can we change the order of Phases 2 and 3?','Yes. Both build on Phase 1 and can start in either order.']];
-  document.getElementById('qs').innerHTML=faq.map(function(f,i){return '<div class="q'+(i===0?' open':'')+'"><button id="fq'+i+'" aria-expanded="'+(i===0)+'" aria-controls="fa'+i+'">'+f[0]+'<span class="cir"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></button><div class="a" id="fa'+i+'" role="region" aria-labelledby="fq'+i+'"'+(i===0?'':' hidden')+'>'+f[1]+'</div></div>'}).join('');
-  document.getElementById('qs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var q=b.parentNode,open=!q.classList.contains('open');
-    [].forEach.call(document.querySelectorAll('.q'),function(x){x.classList.remove('open');x.querySelector('button').setAttribute('aria-expanded','false');x.querySelector('.a').hidden=true});
-    if(open){q.classList.add('open');b.setAttribute('aria-expanded','true');q.querySelector('.a').hidden=false}});
-
   // delivery cards
   var ph=[['Discovery','W1 · Days 1–2',1,2,'Workshop at your plant, batch routes mapped, scope and price fixed.','2','days'],
     ['UX &amp; UI Design','W1–2 · Days 2–6',2,6,'Screens designed in the open with your operators and QA lead.','5','days'],
@@ -93,5 +81,5 @@
   var max=60000,H=454;
   document.getElementById('icards').innerHTML=inv.map(function(c){var h=H;
     return '<article class="icard"><div class="img '+c[3]+'" style="height:'+h+'px"><div class="chips">'+c[4].map(function(x){return '<span>'+x+'</span>'}).join('')+'</div><div class="price"><a class="btn'+(c[3].indexOf('dk')>-1?'':' white')+'" href="mailto:sales@cplusoft.com?subject='+encodeURIComponent('Pharmora pricing: '+c[0].replace('&amp;','&'))+'">Contact for Pricing <span class="dot"><svg><use href="#chev"/></svg></span></a><small>'+c[1].split(' · ')[0]+'</small></div></div>'+
-      '<div class="meta"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>'+c[1]+'</div><h3>'+c[0]+'</h3><div class="foot"><span>'+c[4].length+' modules and services</span><a href="#faq">Scope <svg viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></a></div></article>'}).join('');
+      '<div class="meta"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>'+c[1]+'</div><h3>'+c[0]+'</h3><div class="foot"><span>'+c[4].length+' modules and services</span><a href="#modules">Scope <svg viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></a></div></article>'}).join('');
 })();
