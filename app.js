@@ -66,9 +66,9 @@
   // FAQ
   var faq=[['How long until we are live?','Phase 1 goes live on one production line at the end of week 4: a two-day discovery, design, three short build sprints, validation support and a pilot on one line.'],
     ['Who owns computer system validation?','Validation stays with you as the manufacturer. We supply the documentation, traceability matrix and test evidence your QA team needs to sign it off.'],
-    ['Where is Pharmora hosted?','On a private cloud tenant or on your own servers. Hosting and support are $1,800 a month after go-live.'],
+    ['Where is Pharmora hosted?','On a private cloud tenant or on your own servers. Hosting and support are billed monthly after go-live; contact us for pricing.'],
     ['What do you need from our team?','A QA lead and a production lead for a few hours each sprint, plus your master formulas and current SOPs during discovery.'],
-    ['Are the prices fixed?','The figures here are indicative. We fix the price for each phase after the two-day discovery workshop.'],
+    ['Are the prices fixed?','Yes. We fix the price for each phase after the two-day discovery workshop. Contact us for pricing.'],
     ['Can we change the order of Phases 2 and 3?','Yes. Both build on Phase 1 and can start in either order.']];
   document.getElementById('qs').innerHTML=faq.map(function(f,i){return '<div class="q'+(i===0?' open':'')+'"><button id="fq'+i+'" aria-expanded="'+(i===0)+'" aria-controls="fa'+i+'">'+f[0]+'<span class="cir"><svg viewBox="0 0 16 16"><path d="M8 3v10M4 9l4 4 4-4"/></svg></span></button><div class="a" id="fa'+i+'" role="region" aria-labelledby="fq'+i+'"'+(i===0?'':' hidden')+'>'+f[1]+'</div></div>'}).join('');
   document.getElementById('qs').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var q=b.parentNode,open=!q.classList.contains('open');
@@ -86,12 +86,12 @@
     return '<div class="dcard'+(i===5?' dk':'')+'"><span class="wk">'+p[1]+'</span><h4>'+p[0]+'</h4><div class="gantt" aria-label="Working days '+p[2]+' to '+p[3]+' of 20">'+g+'</div><p>'+p[4]+'</p><div class="big"><b>'+p[5]+'</b><small>'+p[6]+'</small></div></div>'}).join('');
   document.getElementById('dtrack').innerHTML=dc+dc;
 
-  // investment cards (image height to scale with price)
+  // investment cards
   var inv=[['Core Batch Flow','Phase 1 · 4 weeks',60000,'th-mint',['Overview','Batch record','QC lab','Inventory','Traceability','Audit','Validation','Pilot']],
     ['Supply Chain &amp; Finance','Phase 2 · ~10 weeks',28000,'th-deep dk',['Procurement','Sales orders','Packaging','Costing','Invoicing']],
     ['Quality Systems','Phase 3 · ~10 weeks',24000,'th-butter',['Deviations','CAPA','Doc control','Integrations']]];
   var max=60000,H=454;
-  document.getElementById('icards').innerHTML=inv.map(function(c){var h=Math.round(H*c[2]/max);
-    return '<article class="icard"><div class="img '+c[3]+'" style="height:'+h+'px"><div class="chips">'+c[4].map(function(x){return '<span>'+x+'</span>'}).join('')+'</div><div class="price">$'+c[2].toLocaleString('en-US')+'<small>'+c[1].split(' · ')[0]+'</small></div></div>'+
+  document.getElementById('icards').innerHTML=inv.map(function(c){var h=H;
+    return '<article class="icard"><div class="img '+c[3]+'" style="height:'+h+'px"><div class="chips">'+c[4].map(function(x){return '<span>'+x+'</span>'}).join('')+'</div><div class="price"><a class="btn'+(c[3].indexOf('dk')>-1?'':' white')+'" href="mailto:sales@cplusoft.com?subject='+encodeURIComponent('Pharmora pricing: '+c[0].replace('&amp;','&'))+'">Contact for Pricing <span class="dot"><svg><use href="#chev"/></svg></span></a><small>'+c[1].split(' · ')[0]+'</small></div></div>'+
       '<div class="meta"><svg viewBox="0 0 16 16"><rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 6.5h12M5.5 1.5v3M10.5 1.5v3"/></svg>'+c[1]+'</div><h3>'+c[0]+'</h3><div class="foot"><span>'+c[4].length+' modules and services</span><a href="#faq">Scope <svg viewBox="0 0 12 12"><path d="M3 9 9 3M4 3h5v5"/></svg></a></div></article>'}).join('');
 })();

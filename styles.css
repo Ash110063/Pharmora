@@ -333,3 +333,4 @@ footer .bars i{background:linear-gradient(0deg,rgba(150,220,110,.16),rgba(150,22
 
 img{max-width:100%}
 [hidden]{display:none!important}
+.inote a{color:var(--deep);text-decoration:underline;text-underline-offset:2px}
